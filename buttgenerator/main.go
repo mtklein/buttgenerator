@@ -1,4 +1,4 @@
-package hello
+package buttgenerator
 
 import (
 	"html/template"
@@ -26,19 +26,18 @@ var html = template.Must(template.New("html").Parse(`
 `))
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	type Args struct {
-		Image template.URL
-	}
-
 	image := "data:image/svg+xml;utf8," + butt_inline
 	if (r.URL.Path == "/original") {
 		image = "images/butt.jpg"
 	}
-	args := Args {
-		Image: template.URL(image),
-	}
 
-	if err := html.Execute(w, args); err != nil {
-		log.Println("error executing html: ", err)
+	err := html.Execute(w, struct {
+		Image template.URL
+	}{
+		Image: template.URL(image),
+	})
+
+	if err != nil {
+		log.Println("error executing template: ", err)
 	}
 }
