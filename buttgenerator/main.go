@@ -10,6 +10,7 @@ func init() {
 	http.HandleFunc("/", handler)
 }
 
+// hi hi hi hi mike!
 var html = template.Must(template.New("html").Parse(`
 <!DOCTYPE html>
 <html>
