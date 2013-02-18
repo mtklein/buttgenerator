@@ -16,7 +16,9 @@ var html = template.Must(template.New("html").Parse(`
 <html>
 	<head>
 		<title>Butt Generator</title>
-		<script> {{.JS}} </script>
+		<script>
+			{{.JS}}
+		</script>
 		<style>
 			.butt {
 				position: fixed;
