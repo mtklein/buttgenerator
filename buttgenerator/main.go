@@ -15,26 +15,40 @@ var html = template.Must(template.New("html").Parse(`
 <html>
 	<head>
 		<title>Butt Generator</title>
+		<script> {{.JS}} </script>
 		<style>
-			html {
-				background: url({{.Image}}) no-repeat center center fixed;
-				background-size: cover;
+			.butt {
+				position: fixed;
+				top: 0;
+				left: 0;
+				min-width: 100%;
+				min-height: 100%;
+				max-width: 100%;
+				max-height: 100%;
 			}
 		</style>
 	</head>
+
+	<body>
+		{{.Image}}
+	</body>
 </html>
 `))
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	image := "data:image/svg+xml;utf8," + butt_inline
+	image := butt_inline
+	js := svg_js
 	if (r.URL.Path == "/original") {
-		image = "images/butt.jpg"
+		image = `<img class="butt" src="images/butt.jpg" alt="A smiling butt.">`
+		js = ""
 	}
 
 	err := html.Execute(w, struct {
-		Image template.URL
+		Image template.HTML
+		JS    template.JS
 	}{
-		Image: template.URL(image),
+		Image: template.HTML(image),
+		JS: template.JS(js),
 	})
 
 	if err != nil {

@@ -5,7 +5,7 @@ import (
 )
 
 var butt_inline = strings.Replace(`
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="640px" height="480px" viewBox="0 0 640 480" enable-background="new 0 0 640 480" xml:space="preserve">
+<svg class="butt" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="640px" height="480px" viewBox="0 0 640 480" enable-background="new 0 0 640 480" xml:space="preserve">
 <path fill="none" stroke="#00093F" stroke-miterlimit="10" d="M171,91"/>
 <path fill="#DEC276" d="M171,91l291-16c0,0,34,98,28,120s-16,72-54,80s-72.29,6-105.145-36c0,0-14.855,74-64.855,64S156,277,171,91z "/>
 <polyline fill="none" stroke="#00093F" stroke-width="4" stroke-miterlimit="10" points="514.667,202.333 502.667,197 544,135 486.311,141.616 "/>
