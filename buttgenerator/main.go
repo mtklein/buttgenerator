@@ -44,7 +44,7 @@ var html = template.Must(template.New("html").Parse(`
 `))
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	image := butt_inline
+	image := Butt(r.URL.Path == "/spot")
 	js := svg_js
 	if (r.URL.Path == "/original") {
 		image = `<img class="butt" src="images/butt.jpg" alt="A smiling butt.">`
