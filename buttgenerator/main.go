@@ -15,6 +15,7 @@ var html = template.Must(template.New("html").Parse(`
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="mobile-web-app-capable" content="yes">
 		<title>Butt Generator</title>
 		<script>
 			{{.JS}}
