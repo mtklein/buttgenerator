@@ -17,6 +17,9 @@ var html = template.Must(template.New("html").Parse(`
 	<head>
 		<meta name="mobile-web-app-capable" content="yes">
 		<link rel="icon" sizes="192x192" href="favicon.ico">
+
+		<meta name="viewport" content="initial-scale=1, user-scalable=no">
+
 		<title>Butt Generator</title>
 		<script>
 			{{.JS}}
