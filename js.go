@@ -1,4 +1,4 @@
-package buttgenerator
+package main
 
 const svg_js = `
 function random_color() {

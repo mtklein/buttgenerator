@@ -1,14 +1,11 @@
-package buttgenerator
+package main
 
 import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 )
-
-func init() {
-	http.HandleFunc("/", handler)
-}
 
 // hi hi hi hi mike!
 var html = template.Must(template.New("html").Parse(`
@@ -46,7 +43,7 @@ var html = template.Must(template.New("html").Parse(`
 func handler(w http.ResponseWriter, r *http.Request) {
 	image := Butt(r.URL.Path == "/spot")
 	js := svg_js
-	if (r.URL.Path == "/original") {
+	if r.URL.Path == "/original" {
 		image = `<img class="butt" src="images/butt.jpg" alt="A smiling butt.">`
 		js = ""
 	}
@@ -56,10 +53,24 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		JS    template.JS
 	}{
 		Image: template.HTML(image),
-		JS: template.JS(js),
+		JS:    template.JS(js),
 	})
 
 	if err != nil {
 		log.Println("error executing template: ", err)
+	}
+}
+
+func main() {
+	http.HandleFunc("/", handler)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	log.Printf("listening on port %s", port)
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
+		log.Fatal(err)
 	}
 }

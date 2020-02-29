@@ -1,4 +1,4 @@
-package buttgenerator
+package main
 
 import (
 	"strings"
@@ -15,7 +15,7 @@ func Butt(spot bool) string {
 	<path id="mouth" fill="none" stroke="#001F0E" stroke-width="2" stroke-miterlimit="10" d="M300,189.465c0,0,4,12.201,24.666,10.202 c20.667-2,20.001-10.202,20.001-10.202"/>
 	<path id="right-eye" fill="#1F003F" stroke="#001F0E" stroke-miterlimit="10" d="M356.667,127c0,0,5.333,2,3.333,8S347.334,130.333,356.667,127z"/>
 	<path id="left-eye" fill="#13003F" stroke="#001F0E" stroke-miterlimit="10" d="M252.667,147c0,0,10.667,2.667,2.667,9.333 S244,148.333,252.667,147z"/>`,
-	"\n", "", -1)
+		"\n", "", -1)
 
 	if spot {
 		butt += `<circle id="spot" color=#1F003F" stroke-miterlimit="10" cx=360 cy=150 r=2>`
@@ -25,4 +25,3 @@ func Butt(spot bool) string {
 
 	return butt
 }
-
